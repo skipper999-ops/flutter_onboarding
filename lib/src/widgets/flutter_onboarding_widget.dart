@@ -187,18 +187,31 @@ class _FlutterOnBoardingState extends State<FlutterOnBoarding> {
 
                           const SizedBox(height: 32.0),
 
-                          if (widget.scrollDirection != Axis.vertical)
-                            widget.indicator ?? _buildIndicators(),
-
                           // button
-                          widget.navigationControl ??
-                              _buildNavigationSection(
-                                  isLastPage, context, index),
-                          const SizedBox(height: 32.0),
                         ],
                       );
                     },
                   ),
+                  if (widget.scrollDirection != Axis.vertical)
+                    Positioned(
+                      left: 0.0,
+                      bottom: 0.0,
+                      right: 0.0,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 32),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            widget.indicator ?? _buildIndicators(),
+                            widget.navigationControl ??
+                                _buildNavigationSection(
+                                    currentPage == widget.pages.length - 1,
+                                    context,
+                                    currentPage),
+                          ],
+                        ),
+                      ),
+                    ),
                   if (widget.scrollDirection == Axis.vertical)
                     Positioned(
                       right: 0.0,
