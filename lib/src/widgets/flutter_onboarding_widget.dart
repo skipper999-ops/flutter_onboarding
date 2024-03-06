@@ -242,22 +242,8 @@ class _FlutterOnBoardingState extends State<FlutterOnBoarding> {
                 const SizedBox(height: 32.0),
 
                 // title
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 16.0,
-                    horizontal: 32.0,
-                  ),
-                  child: introModel.title,
-                ),
-
-                // description
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 16.0,
-                    horizontal: 32.0,
-                  ),
-                  child: introModel.description,
-                ),
+                introModel.title,
+                introModel.description,
               ],
             ),
           ),
